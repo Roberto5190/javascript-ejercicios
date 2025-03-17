@@ -228,5 +228,61 @@ const {nombre: ana, edad: anaAge} = objeto
 console.log(ana, anaAge);
 
 // ejercicio_32:  Closure
+const createCounter = () => {
+    let count = 0;
+    return function () {
+        ++count;
+        return count; 
+    };
+}
+
+const counter = createCounter()
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+
+// ejercicio_33: this en métodos de objeto
+const coche = {
+    marca: "Toyota",
+    mostrarMarca:  function() {
+        return this.marca
+    }
+}
+
+console.log(coche.mostrarMarca());
+
+// ejercicio_34: Clases
+class Rectangulo {
+
+    constructor(ancho, alto) {
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    area() {
+        return this.ancho * this.alto;
+    }
+}
+
+const miRectangulo = new Rectangulo(5, 10);
+
+console.log("El área del rectángulo es: " + miRectangulo.area());
+
+
+// ejercicio_35: JSON
+const persona = {
+    nombre: "Carmen",
+    edad: 54,
+    ciudad: "Madrid"
+};
+
+const jsonString = JSON.stringify(persona);
+console.log("Cadena JSON:", jsonString);
+
+const objetoDeNuevo = JSON.parse(jsonString);
+console.log("Objeto de nuevo:", objetoDeNuevo);
+
+
 
 
